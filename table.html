@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body onload="tab()">
+
+ 
+
+<script>
+ 
+var info = [{firstName:"Devesh",lastName:"Bhardwaj",designation:"ceo", id:60,mobile:7876045638,dob:"14/06/1997",email:"abc@gmail.com"},
+            {firstName:"shiv",lastName:"sharma",designation:"cfo", id:63,mobile:7876045611,dob:"17/06/1995",email:"abcd@gmail.com"},
+            {firstName:"raj",lastName:"deep",designation:"coo", id:65,mobile:9324045638,dob:"18/02/1997",email:"abcd@gmail.com"},
+            {firstName:"gaurav",lastName:"Bhardwaj",designation:"director", id:67,mobile:7576045637,dob:"14/09/1991",email:"abcde@gmail.com"},
+            {firstName:"rajesh",lastName:"shrivastava",designation:"teamlead", id:66,mobile:7876043242,dob:"11/06/1994",email:"abcdef@gmail.com"}
+
+]
+var keys;
+var values;
+
+function tab(){
+
+    keys = Object.keys(info[1])
+    
+    
+    values =info.map((element,index)=>{
+        return Object.values(info[index])
+    
+    })
+
+    
+    var td =[];
+    var text =[];
+    var table = document.createElement('table');
+    table.border = "1";
+   
+    var thead = document.createElement('thead');
+
+table.appendChild(thead);
+
+for(var i=0;i<keys.length;i++){
+thead.appendChild(document.createElement("th")).
+appendChild(document.createTextNode(keys[i]));
+}
+
+
+
+    for (var i = 0; i < values.length; i++){
+        var tr = document.createElement('tr');    
+        for(let j=0;j<keys.length;j++){
+             td[j] =document.createElement('td');
+             text[j] = document.createTextNode(values[i][j]);
+             td[j].appendChild(text[j]);
+             tr.appendChild(td[j])
+
+        }
+
+    table.appendChild(tr);
+}
+document.body.appendChild(table);
+    
+    
+}
+
+
+</script>
+
+</body>
+</html>
